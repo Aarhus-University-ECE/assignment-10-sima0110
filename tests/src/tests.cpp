@@ -69,7 +69,7 @@ TEST_CASE("btree") {
   //               20
   //             /    \
   //            /      \
-  //           5       30
+  //           5       39
   //         /   \     /\
   //        /     \   /  \
   //       1      15 25  40
@@ -79,6 +79,9 @@ TEST_CASE("btree") {
   //        /   \          /
   //       /     \        /
   //      7      12      42
+  //                    /
+  //                   /
+  //                  41
   */
 	struct tree_node* root = NULL;
 
@@ -95,6 +98,8 @@ TEST_CASE("btree") {
 	root = Insert(40, root);
 	root = Insert(45, root);
 	root = Insert(42, root);
+
+	print_btree(root, 0);
 
 	REQUIRE(Contains(20, root) == 1);
 	REQUIRE(Contains(5, root) == 1);
@@ -121,6 +126,8 @@ TEST_CASE("btree") {
 	REQUIRE(Contains(3, root) == 1);
 
 	root = Remove(3, root);
+
+	print_btree(root, 0);
 
 	REQUIRE(Contains(20, root) == 1);
 	REQUIRE(Contains(5, root) == 1);
